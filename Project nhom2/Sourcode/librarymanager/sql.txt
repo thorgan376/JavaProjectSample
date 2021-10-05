@@ -1,0 +1,14 @@
+INSERT INTO `employee` VALUES (54465,'nguyen','male','werfgwr','468545541','bookmanager1','123456',1);
+INSERT INTO `employee` VALUES (54485,'nguyen','male','werfgwr','468545541','membermanager1','123456',2);
+INSERT INTO `employee` VALUES (54585,'nguyen','male','werfgwr','468545541','admin','admin',3);
+
+CREATE TABLE `employee` (
+  `employeeId` varchar(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `gender` varchar(15) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `phoneNumber` mediumtext NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `accountProvideType` int NOT NULL
+)
