@@ -8,6 +8,7 @@ package App;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import database.select;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,6 +20,11 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
+        /* JFrame loginRoom = new JFrame("Test Jrame");
+        loginRoom.setSize(1366,768);
+        loginRoom.setVisible(true);
+        loginRoom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        */
         initComponents();
     }
 
