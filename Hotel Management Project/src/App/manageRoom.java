@@ -56,8 +56,8 @@ public class manageRoom extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(50, 118, 0, 0));
-        setLocation(new java.awt.Point(50, 118));
+        setBounds(new java.awt.Rectangle(50, 148, 0, 0));
+        setLocation(new java.awt.Point(50, 148));
         setUndecorated(true);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
