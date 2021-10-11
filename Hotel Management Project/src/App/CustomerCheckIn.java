@@ -27,7 +27,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         initComponents();
         jTextField7.setEditable(false);
         jTextField8.setEditable(false);
-        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd/MM/yyyy");
         Calendar cal = Calendar.getInstance();
         jTextField7.setText(myFormat.format(cal.getTime()));
     }
