@@ -225,6 +225,11 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(867, 379, -1, -1));
 
         jTextField8.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(867, 426, 320, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 0, 0));
@@ -357,6 +362,10 @@ public class CustomerCheckIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
     /**
      * @param args the command line arguments

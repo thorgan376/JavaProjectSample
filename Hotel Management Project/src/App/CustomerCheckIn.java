@@ -5,6 +5,13 @@
  */
 package App;
 
+import com.itextpdf.text.xml.xmp.XmpSchema;
+import database.InsertUpdateDelete;
+import database.select;
+import hotel.management.utilities.Validation;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +25,30 @@ public class CustomerCheckIn extends javax.swing.JFrame {
      */
     public CustomerCheckIn() {
         initComponents();
+        jTextField7.setEditable(false);
+        jTextField8.setEditable(false);
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar cal = Calendar.getInstance();
+        jTextField7.setText(myFormat.format(cal.getTime()));
+    }
+    String bed;
+    String roomType;
+    String roomNo;
+    String price;
+    
+    public void roomDetails() {
+        jComboBox4.removeAllItems();
+        jTextField8.setText("");
+        bed = (String)jComboBox2.getSelectedItem();
+        roomType = (String)jComboBox3.getSelectedItem();
+        try {
+            ResultSet rs = select.getData("select * from room where bed ='"+bed+"' and roomType = '"+roomType+"' and status='Not Booked'");
+            while (rs.next()) {                
+                jComboBox4.addItem(rs.getString(1));
+            }
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -219,7 +250,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 389, 300, -1));
 
         jComboBox2.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Tripple" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Tripple", "Four" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -232,7 +263,11 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 232, 300, -1));
 
         jComboBox4.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(884, 310, 300, -1));
 
         jLabel14.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
@@ -260,6 +295,59 @@ public class CustomerCheckIn extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int id = 1;
+        try {
+           String name = jTextField1.getText();
+           String mobileNumber = jTextField2.getText();
+           String nationality = jTextField3.getText();
+           String gender = (String)jComboBox1.getSelectedItem();
+           String email = jTextField4.getText();
+           String idProof = jTextField5.getText();
+           String address=jTextField6.getText();
+           String checkIn=jTextField7.getText();
+           String bed=(String)jComboBox2.getSelectedItem();
+           String roomType=(String)jComboBox3.getSelectedItem();
+           String roomNo=(String)jComboBox4.getSelectedItem();
+           String price=jTextField8.getText();
+           //hãy validate ở đây
+            if (!Validation.isValidEmail(email)) {
+                JOptionPane.showMessageDialog(this, "Email is invalid format");
+                return;
+            }
+            if (!Validation.isValidMobile(mobileNumber)) {
+                JOptionPane.showMessageDialog(this, "Mobile Number is invalid format");
+                return;
+            }
+            if (Double.valueOf(price) <= 300) {
+                JOptionPane.showMessageDialog(this, "Price must be higher than 300");
+                return;
+            }
+            String Query = "select max(id) from customer";
+            ResultSet rs = select.getData(Query);
+            while (rs.next()) {                
+                id = rs.getInt(1);
+                id = id + 1;
+                if (!price.equals("")) {
+                    Query = "update room set status = 'Booked' where roomNo = '"+roomNo+"'";
+                    InsertUpdateDelete.setData(Query, "");
+                    Query = "insert into customer(id, name, mobileNumber,"
+                            + " nationality,gender,email,idProof,address,"
+                            + "checkIn,roomNo,bed,roomType,pricePerDay)"
+                            + "value("+id+",'"+name+"','"+mobileNumber+"',"
+                            + "'"+nationality+"','"+gender+"','"+email+"',"
+                            + "'"+idProof+"','"+address+"','"+checkIn+"','"
+                            + ""+roomNo+"','"+bed+"','"+roomType+"','"+price+"')";
+                    InsertUpdateDelete.setData(Query,"Customer Check In Successfully");
+                    setVisible(false);
+                    new CustomerCheckIn().setVisible(true);
+                }
+            }
+        } catch (Exception e) {
+            if (e instanceof  NumberFormatException) {
+                JOptionPane.showMessageDialog(this, "Invalid Input Data");
+            }
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -282,6 +370,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
+        roomDetails();
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
@@ -292,9 +381,22 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = JOptionPane.showConfirmDialog(null, "Do you really want to close customer check in page ?","Select what you want", JOptionPane.YES_NO_OPTION);
         if(a==0){
-            System.exit(0);
+            setVisible(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+        roomNo = (String)jComboBox4.getSelectedItem();
+        try {
+            ResultSet rs = select.getData("select * from room where roomNo ='"+roomNo+"'");
+            while (rs.next()) {                
+                jTextField8.setText(rs.getString(4));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jComboBox4ActionPerformed
 
     /**
      * @param args the command line arguments
