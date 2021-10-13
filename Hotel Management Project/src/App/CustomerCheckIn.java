@@ -296,7 +296,6 @@ public class CustomerCheckIn extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int id = 1;
-        try {
            String name = jTextField1.getText();
            String mobileNumber = jTextField2.getText();
            String nationality = jTextField3.getText();
@@ -314,15 +313,12 @@ public class CustomerCheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Email is invalid format");
                 return;
             }
-            if (!Validation.isValidMobile(mobileNumber)) {
-                JOptionPane.showMessageDialog(this, "Mobile Number is invalid format");
-                return;
-            }
             if (Double.valueOf(price) <= 300) {
                 JOptionPane.showMessageDialog(this, "Price must be higher than 300");
                 return;
             }
             String Query = "select max(id) from customer";
+        try {
             ResultSet rs = select.getData(Query);
             while (rs.next()) {                
                 id = rs.getInt(1);
@@ -381,7 +377,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = JOptionPane.showConfirmDialog(null, "Do you really want to close customer check in page ?","Select what you want", JOptionPane.YES_NO_OPTION);
         if(a==0){
-            setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

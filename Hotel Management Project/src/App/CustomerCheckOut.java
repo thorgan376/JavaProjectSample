@@ -245,7 +245,7 @@ public class CustomerCheckOut extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a=JOptionPane.showConfirmDialog(null,"Do you really want yo Close Application","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
-            setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -393,7 +393,8 @@ public class CustomerCheckOut extends javax.swing.JFrame {
             rs.close();
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e); //error
+            JOptionPane.showMessageDialog(null, "hahahahaha");
         }
     }//GEN-LAST:event_formComponentShown
 

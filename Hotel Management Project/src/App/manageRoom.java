@@ -172,7 +172,7 @@ public class manageRoom extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a=JOptionPane.showConfirmDialog(null,"Do you want to close manage room","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
-            setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

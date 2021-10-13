@@ -19,7 +19,7 @@ public class Validation {
         return matcher.find();
     }
     public static boolean isValidMobile(String mobileNumber) {
-        Pattern mobileNumberPattern = Pattern.compile("^\\\\d{10}$", Pattern.CASE_INSENSITIVE);
+        Pattern mobileNumberPattern = Pattern.compile("^\\d{10}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = mobileNumberPattern.matcher(mobileNumber);
         return matcher.find();
     }
