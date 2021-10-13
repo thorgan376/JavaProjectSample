@@ -259,7 +259,7 @@ public class CustomerCheckOut extends javax.swing.JFrame {
         try{
             ResultSet rs=select.getData("select*from customer where roomNo='"+roomNo+"'and checkOut is NULL");
             if(rs.next()){
-                jTextField1.setEditable(false);
+                jTextField1.setEditable(true);
                 id = rs.getInt(1);
                 jTextField2.setText(rs.getString(2));
                 jTextField3.setText(rs.getString(9));
