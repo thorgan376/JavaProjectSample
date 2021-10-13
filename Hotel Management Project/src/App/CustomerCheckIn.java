@@ -313,6 +313,10 @@ public class CustomerCheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Email is invalid format");
                 return;
             }
+            if (!Validation.isValidMobile(mobileNumber)) {
+                JOptionPane.showMessageDialog(this, "Mobile Number is invalid format");
+                return;
+            }
             if (Double.valueOf(price) <= 300) {
                 JOptionPane.showMessageDialog(this, "Price must be higher than 300");
                 return;
