@@ -91,10 +91,11 @@ public class CustomerCheckOut extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Customer Check Out.png"))); // NOI18N
         jLabel1.setText("Customer check Out");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 11, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
