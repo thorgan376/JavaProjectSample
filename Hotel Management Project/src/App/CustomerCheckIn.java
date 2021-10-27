@@ -22,6 +22,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
 
     /**
      * Creates new form CustomerCheckIn
+     * you know, there is change in here
      */
     public CustomerCheckIn() {
         initComponents();
@@ -379,7 +380,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close customer check in page ?","Select what you want", JOptionPane.YES_NO_OPTION);
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close customer check?","Select what you want", JOptionPane.YES_NO_OPTION);
         if(a==0){
             dispose();
         }
