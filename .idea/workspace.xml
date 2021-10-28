@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6ccdf0e-1dc0-4c8e-8b93-ceaa02bb30f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Hotel Management Project/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel Management Project/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hotel-Managerment-Project-Official-Last/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel-Managerment-Project-Official-Last/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hotel Management Project/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel Management Project/nbproject/private/private.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b6ccdf0e-1dc0-4c8e-8b93-ceaa02bb30f2" name="Default Changelist" comment="" />
